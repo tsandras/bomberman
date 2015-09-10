@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef STRUCT_H
+#define STRUCT_H
 
 typedef struct  s_client_request
 {
@@ -34,3 +33,5 @@ typedef struct          s_game
     t_player_infos        player_infos[4];
     t_map                 map;
 }                       t_game;
+
+#endif

@@ -1,23 +1,22 @@
 CC = gcc
 NAME = bomberman
-SRC  = main.c
 
-CFLAGS = -W -Wall -Werror -fPIC -g3 -Wextra
-OBJ = $(SRC:%.c=%.o)
+INC = -I inc/
+CFLAGS = -W -Werror -Wall -g -ggdb -g3 $(INC)
+OBJ = src/*.c lib/*.c
 TMP = *~
 RM  = rm -f
 PWD = $(shell pwd)
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -g3 -o $(NAME)
+all:
+	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) src/*.o lib/*.o
 
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(TMP)
+	$(RM) -r $(NAME).dSYM/
 
 re:  fclean all fclean
